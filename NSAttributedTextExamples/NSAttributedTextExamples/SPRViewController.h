@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SPRViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *oneLineLabel;
+@property (weak, nonatomic) IBOutlet UILabel *twoLineLabel;
+@property (weak, nonatomic) IBOutlet UILabel *manyLinesLabel;
+@property (weak, nonatomic) IBOutlet UITextView *manyLinesTextView;
 
 @end
