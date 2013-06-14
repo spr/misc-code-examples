@@ -43,6 +43,7 @@
     paragraphStyle.maximumLineHeight = self.maxLineHeight;
     paragraphStyle.paragraphSpacing = self.paragraphSpacing;
     paragraphStyle.lineHeightMultiple = self.lineHeightMultiple;
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     return @{NSFontAttributeName: [UIFont fontWithName:self.fontName size:self.fontSize], NSParagraphStyleAttributeName: paragraphStyle};
 }
 

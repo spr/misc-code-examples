@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B748976176BC67300F05BCD /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B748975176BC67300F05BCD /* iPhoneStoryboard.storyboard */; };
 		B75E40F717497EC600D6B518 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75E40F617497EC600D6B518 /* UIKit.framework */; };
 		B75E40F917497EC600D6B518 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75E40F817497EC600D6B518 /* Foundation.framework */; };
 		B75E40FB17497EC600D6B518 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75E40FA17497EC600D6B518 /* CoreGraphics.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B748975176BC67300F05BCD /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		B75E40F317497EC600D6B518 /* NSAttributedTextExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSAttributedTextExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75E40F617497EC600D6B518 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B75E40F817497EC600D6B518 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,6 +94,7 @@
 				B75E410517497EC600D6B518 /* SPRAppDelegate.h */,
 				B75E410617497EC600D6B518 /* SPRAppDelegate.m */,
 				B75E410E17497EC600D6B518 /* MainStoryboard.storyboard */,
+				9B748975176BC67300F05BCD /* iPhoneStoryboard.storyboard */,
 				B75E411C1749A2F400D6B518 /* SPRConfigurationManager.h */,
 				B75E411D1749A2F400D6B518 /* SPRConfigurationManager.m */,
 				B75E411117497EC600D6B518 /* SPRViewController.h */,
@@ -171,6 +174,7 @@
 			files = (
 				B75E410117497EC600D6B518 /* InfoPlist.strings in Resources */,
 				B75E410917497EC600D6B518 /* Default.png in Resources */,
+				9B748976176BC67300F05BCD /* iPhoneStoryboard.storyboard in Resources */,
 				B75E410B17497EC600D6B518 /* Default@2x.png in Resources */,
 				B75E410D17497EC600D6B518 /* Default-568h@2x.png in Resources */,
 				B75E411017497EC600D6B518 /* MainStoryboard.storyboard in Resources */,
@@ -279,6 +283,7 @@
 				GCC_PREFIX_HEADER = "NSAttributedTextExamples/NSAttributedTextExamples-Prefix.pch";
 				INFOPLIST_FILE = "NSAttributedTextExamples/NSAttributedTextExamples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -290,6 +295,7 @@
 				GCC_PREFIX_HEADER = "NSAttributedTextExamples/NSAttributedTextExamples-Prefix.pch";
 				INFOPLIST_FILE = "NSAttributedTextExamples/NSAttributedTextExamples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

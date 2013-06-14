@@ -29,5 +29,4 @@
 - (IBAction)maxLineHeightChanged:(id)sender;
 - (IBAction)paragraphSpacingChanged:(id)sender;
 - (IBAction)lineHeightMultipleChanged:(id)sender;
-
 @end

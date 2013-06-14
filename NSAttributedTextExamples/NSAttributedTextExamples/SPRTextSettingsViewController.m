@@ -105,4 +105,7 @@
     self.lineHeightMultipleDisplay.text = FLOAT_STRING(sender.value);
 }
 
+- (IBAction)dismissModal:(UIButton *)sender {
+}
+
 @end
