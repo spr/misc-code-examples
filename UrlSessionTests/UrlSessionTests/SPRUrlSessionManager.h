@@ -25,15 +25,15 @@ typedef void (^UrlSessionDownloadProgressCallback)(int64_t bytesWritten, int64_t
 // Data Task backed
 - (NSURLSessionDataTask *)fetchURL:(NSURL *)url completion:(UrlSessionDataTaskResult)completion;
 
-- (void)fetchWithoutRedirection:(NSURL *)url completion:(UrlSessionDataTaskResult)completion;
+- (NSURLSessionDataTask *)fetchWithoutRedirection:(NSURL *)url completion:(UrlSessionDataTaskResult)completion;
 
 // Fun stuff
-- (void)fetchWithSwitchingToDownloadForTypes:(NSArray *)downloadTypes URL:(NSURL *)url completion:(UrlSessionDataOrDownloadTaskResult)completion;
+- (NSURLSessionDataTask *)fetchWithSwitchingToDownloadForTypes:(NSArray *)downloadTypes URL:(NSURL *)url completion:(UrlSessionDataOrDownloadTaskResult)completion;
 
 // Download Task backed
-- (void)downloadURL:(NSURL *)url withProgress:(UrlSessionDownloadProgressCallback)progressCallback completion:(UrlSessionDownloadTaskResult)completion;
+- (NSURLSessionDownloadTask *)downloadURL:(NSURL *)url withProgress:(UrlSessionDownloadProgressCallback)progressCallback completion:(UrlSessionDownloadTaskResult)completion;
 
-- (void)downloadWithRetries:(NSUInteger)numberOfRetries url:(NSURL *)url completion:(UrlSessionDownloadTaskResult)completion;
+- (NSURLSessionDownloadTask *)downloadWithRetries:(NSUInteger)numberOfRetries url:(NSURL *)url completion:(UrlSessionDownloadTaskResult)completion;
 
 // Here so we can investigate the session properties
 // Wouldn't actually make this public

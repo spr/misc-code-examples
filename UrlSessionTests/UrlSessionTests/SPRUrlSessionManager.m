@@ -38,16 +38,20 @@
 
 + (NSURLSessionTask *)asyncFetchData:(NSURL *)url completion:(UrlSessionDataTaskResult)completion {
     NSURLSession *session = [NSURLSession sharedSession];
-    return [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         completion(data, response, error);
     }];
+    [task resume];
+    return task;
 }
 
 + (NSURLSessionTask *)asyncDownloadURL:(NSURL *)url completion:(UrlSessionDownloadTaskResult)completion {
     NSURLSession *session = [NSURLSession sharedSession];
-    return [session downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+    NSURLSessionTask *task = [session downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         completion(location, response, error);
     }];
+    [task resume];
+    return task;
 }
 
 #pragma mark - Init
@@ -83,6 +87,33 @@
     NSURLSessionDataTask *task = [self.session dataTaskWithURL:url];
     self.dataTaskCompletionHandlers[@(task.taskIdentifier)] = completion;
     self.dataTaskDatas[@(task.taskIdentifier)] = [NSMutableData dataWithCapacity:1024];
+    [task resume];
+    return task;
+}
+
+- (NSURLSessionDataTask *)fetchWithoutRedirection:(NSURL *)url completion:(UrlSessionDataTaskResult)completion {
+    NSURLSessionDataTask *task = [self.session dataTaskWithURL:url];
+    self.dataTaskCompletionHandlers[@(task.taskIdentifier)] = completion;
+    self.dataTaskDatas[@(task.taskIdentifier)] = [NSMutableData dataWithCapacity:1024];
+    [self.tasksBlockingRedirects addObject:@(task.taskIdentifier)];
+    [task resume];
+    return task;
+}
+
+- (NSURLSessionDataTask *)fetchWithSwitchingToDownloadForTypes:(NSArray *)downloadTypes URL:(NSURL *)url completion:(UrlSessionDataOrDownloadTaskResult)completion {
+    NSURLSessionDataTask *task = [self.session dataTaskWithURL:url];
+    self.dataOrDownloadCompletionHandlers[@(task.taskIdentifier)] = completion;
+    self.dataTaskCompletionHandlers[@(task.taskIdentifier)] = ^(NSData *data, NSURLResponse *response, NSError *error) {
+        completion(nil, data, response, error);
+    };
+    self.dataTaskDatas[@(task.taskIdentifier)] = [NSMutableData dataWithCapacity:1024];
+    
+    NSString *filetype = [[url lastPathComponent] pathExtension];
+    
+    if ([downloadTypes containsObject:filetype]) {
+        [self.dataTasksThatShouldBeDownloadTasks addObject:@(task.taskIdentifier)];
+    }
+    
     [task resume];
     return task;
 }
@@ -160,7 +191,7 @@
     if ((data = self.dataTaskDatas[@(dataTask.taskIdentifier)])) {
         data.length = 0;
     }
-    if ([self.dataTasksThatShouldBeDownloadTasks containsObject:dataTask]) {
+    if ([self.dataTasksThatShouldBeDownloadTasks containsObject:@(dataTask.taskIdentifier)]) {
         NSLog(@"Attempting to transform %@ (%d) into download task", dataTask, dataTask.taskIdentifier);
         completionHandler(NSURLSessionResponseBecomeDownload);
     } else {
@@ -181,6 +212,7 @@
         NSLog(@"Task identifiers changed, cleaning up");
         [self removeAllReferencesForIdentifier:dataTask.taskIdentifier];
     }
+    [downloadTask resume];
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
@@ -201,13 +233,14 @@
         NSLog(@"Error getting downloads directory: %@", error);
         return;
     }
-    NSString *newFileName = [NSString stringWithFormat:@"%d-%@", downloadTask.taskIdentifier, downloadTask.response.URL.lastPathComponent];
+    NSString *newFileName = [NSString stringWithFormat:@"%@", downloadTask.response.URL.lastPathComponent];
     NSURL *newFileLocation = [downloadDir URLByAppendingPathComponent:newFileName];
     
     BOOL success = [[NSFileManager defaultManager] copyItemAtURL:location toURL:newFileLocation error:&error];
     if (!success) {
         NSLog(@"Error copying %@ to %@: %@", location, newFileLocation, error);
     }
+    self.downloadTaskLocations[@(downloadTask.taskIdentifier)] = newFileLocation;
 }
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
@@ -217,6 +250,10 @@
     if (progressCallback) {
         progressCallback(bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
     }
+}
+
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes {
+    // nothing here yet...
 }
 
 @end
