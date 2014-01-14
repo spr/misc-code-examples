@@ -40,13 +40,21 @@
 
 - (void)testNSURLSessionDirectly {
     NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:@"http://www.google.com"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:@"http://images4.fanpop.com/image/photos/14700000/So-cute-puppies-14749028-1600-1200.jpg"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSLog(@"Success!");
         dispatch_semaphore_signal(self.completed);
     }];
+    NSDate *taskStartTime = [NSDate date];
     [task resume];
+    NSDate *taskLaunchedTime = [NSDate date];
     
     dispatch_semaphore_wait(self.completed, DISPATCH_TIME_FOREVER);
+    NSDate *taskCompleteTime = [NSDate date];
+    
+    
+    NSLog(@"Time to launch task: %f", [taskLaunchedTime timeIntervalSinceDate:taskStartTime]);
+    NSLog(@"Time to complete task: %f", [taskCompleteTime timeIntervalSinceDate:taskLaunchedTime]);
+    
     task = nil;
 }
 

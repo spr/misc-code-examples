@@ -197,6 +197,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Scott Robertson";
 				TargetAttributes = {
+					B7F987C917A5C6E200A5CD31 = {
+						DevelopmentTeam = 7BN595229B;
+					};
 					B7F987E417A5C6E200A5CD31 = {
 						TestTargetID = B7F987C917A5C6E200A5CD31;
 					};
@@ -362,10 +365,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UrlSessionTests/UrlSessionTests-Prefix.pch";
 				INFOPLIST_FILE = "UrlSessionTests/UrlSessionTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -375,10 +381,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UrlSessionTests/UrlSessionTests-Prefix.pch";
 				INFOPLIST_FILE = "UrlSessionTests/UrlSessionTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -442,6 +451,7 @@
 				B7F987F817A5C6E200A5CD31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B7F987F917A5C6E200A5CD31 /* Build configuration list for PBXNativeTarget "UrlSessionTestsTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +460,7 @@
 				B7F987FB17A5C6E200A5CD31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
