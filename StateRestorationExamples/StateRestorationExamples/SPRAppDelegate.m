@@ -9,6 +9,7 @@
 #import "SPRAppDelegate.h"
 
 #import "SPRBasicViewController.h"
+#import "SPRTableViewController.h"
 
 @implementation SPRAppDelegate
 
@@ -17,7 +18,12 @@
     // Override point for customization after application launch.
     
     // Create a UINavigation Controller
+    // - UIWindow doesn't partipate in state restoration, and so we need to create
+    //   the root view controller.
     UINavigationController *rootVC = [[UINavigationController alloc] init];
+
+    // With this the system begins to cascade down the encoded tree.
+    // UINavigationController handles all of this.
     rootVC.restorationIdentifier = @"theRoot";
     
     self.window.rootViewController = rootVC;
@@ -33,9 +39,13 @@
     if (!rootVC.topViewController) {
         NSLog(@"Not coming back from a state restore");
         // Create a root node for our nav controller
-        SPRBasicViewController *basic = [[SPRBasicViewController alloc] init];
-        // we made it so this automatically participates in the init function, so we're done
-        [rootVC pushViewController:basic animated:NO];
+//        SPRBasicViewController *basic = [[SPRBasicViewController alloc] init];
+//        [rootVC pushViewController:basic animated:NO];
+        
+        SPRTableViewController *tVC = [[SPRTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        tVC.restorationIdentifier = NSStringFromClass([tVC class]);
+        [rootVC pushViewController:tVC animated:NO];
+        
     } else {
         NSLog(@"Coming back from state restoration");
     }

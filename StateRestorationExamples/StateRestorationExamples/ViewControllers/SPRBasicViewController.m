@@ -26,6 +26,8 @@
         self.restorationClass = [self class];
         self.restorationIdentifier = NSStringFromClass([self class]);
         _tapCounter = 0;
+        
+        self.title = @"Tapper";
     }
     return self;
 }
@@ -50,6 +52,7 @@
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
     [super decodeRestorableStateWithCoder:coder];
     
+    NSLog(@"%@: restoring state", self);
     self.tapCounter = [coder decodeIntegerForKey:kRestorationTapCounter];
 }
 

@@ -20,6 +20,7 @@
 		B7A5524A1884F47B0041A82A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A552481884F47B0041A82A /* InfoPlist.strings */; };
 		B7A5524C1884F47B0041A82A /* StateRestorationExamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A5524B1884F47B0041A82A /* StateRestorationExamplesTests.m */; };
 		B7A552581884F50F0041A82A /* SPRBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A552571884F50F0041A82A /* SPRBasicViewController.m */; };
+		B7A5525B1884FD7A0041A82A /* SPRTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A5525A1884FD7A0041A82A /* SPRTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B7A5524B1884F47B0041A82A /* StateRestorationExamplesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateRestorationExamplesTests.m; sourceTree = "<group>"; };
 		B7A552561884F50F0041A82A /* SPRBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRBasicViewController.h; sourceTree = "<group>"; };
 		B7A552571884F50F0041A82A /* SPRBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRBasicViewController.m; sourceTree = "<group>"; };
+		B7A552591884FD7A0041A82A /* SPRTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRTableViewController.h; sourceTree = "<group>"; };
+		B7A5525A1884FD7A0041A82A /* SPRTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 			children = (
 				B7A552561884F50F0041A82A /* SPRBasicViewController.h */,
 				B7A552571884F50F0041A82A /* SPRBasicViewController.m */,
+				B7A552591884FD7A0041A82A /* SPRTableViewController.h */,
+				B7A5525A1884FD7A0041A82A /* SPRTableViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				B7A552581884F50F0041A82A /* SPRBasicViewController.m in Sources */,
 				B7A552371884F47B0041A82A /* SPRAppDelegate.m in Sources */,
 				B7A552331884F47B0041A82A /* main.m in Sources */,
+				B7A5525B1884FD7A0041A82A /* SPRTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
