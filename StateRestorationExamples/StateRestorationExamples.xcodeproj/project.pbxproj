@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B724B54D188C607D0031D40E /* SPRVCSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B724B54C188C607D0031D40E /* SPRVCSelectionViewController.m */; };
 		B7A552271884F47B0041A82A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A552261884F47B0041A82A /* Foundation.framework */; };
 		B7A552291884F47B0041A82A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A552281884F47B0041A82A /* CoreGraphics.framework */; };
 		B7A5522B1884F47B0041A82A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A5522A1884F47B0041A82A /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B724B54B188C607D0031D40E /* SPRVCSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRVCSelectionViewController.h; sourceTree = "<group>"; };
+		B724B54C188C607D0031D40E /* SPRVCSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRVCSelectionViewController.m; sourceTree = "<group>"; };
 		B7A552231884F47B0041A82A /* StateRestorationExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateRestorationExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A552261884F47B0041A82A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B7A552281884F47B0041A82A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,8 @@
 				B7A552361884F47B0041A82A /* SPRAppDelegate.m */,
 				B7A552381884F47B0041A82A /* Images.xcassets */,
 				B7A5522D1884F47B0041A82A /* Supporting Files */,
+				B724B54B188C607D0031D40E /* SPRVCSelectionViewController.h */,
+				B724B54C188C607D0031D40E /* SPRVCSelectionViewController.m */,
 			);
 			path = StateRestorationExamples;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B724B54D188C607D0031D40E /* SPRVCSelectionViewController.m in Sources */,
 				B7A552581884F50F0041A82A /* SPRBasicViewController.m in Sources */,
 				B7A552371884F47B0041A82A /* SPRAppDelegate.m in Sources */,
 				B7A552331884F47B0041A82A /* main.m in Sources */,
@@ -462,6 +468,7 @@
 				B7A552511884F47B0041A82A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B7A552521884F47B0041A82A /* Build configuration list for PBXNativeTarget "StateRestorationExamplesTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +477,7 @@
 				B7A552541884F47B0041A82A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

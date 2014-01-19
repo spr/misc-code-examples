@@ -40,6 +40,7 @@
                         @"Fifteenth",
                         @"Sixteenth"];
         self.restorationClass = [self class];
+        self.restorationIdentifier = NSStringFromClass([self class]);
         
         self.title = @"Table View";
     }

@@ -10,6 +10,7 @@
 
 #import "SPRBasicViewController.h"
 #import "SPRTableViewController.h"
+#import "SPRVCSelectionViewController.h"
 
 @implementation SPRAppDelegate
 
@@ -39,14 +40,11 @@
     if (!rootVC.topViewController) {
         NSLog(@"Not coming back from a state restore");
         // Create a root node for our nav controller
-//        SPRBasicViewController *basic = [[SPRBasicViewController alloc] init];
-//        [rootVC pushViewController:basic animated:NO];
-        
-        SPRTableViewController *tVC = [[SPRTableViewController alloc] initWithStyle:UITableViewStylePlain];
-        tVC.restorationIdentifier = NSStringFromClass([tVC class]);
-        [rootVC pushViewController:tVC animated:NO];
+        SPRVCSelectionViewController *vc = [[SPRVCSelectionViewController alloc] init];
+        [rootVC pushViewController:vc animated:NO];
         
     } else {
+        // Root node has been restored.
         NSLog(@"Coming back from state restoration");
     }
     return YES;
