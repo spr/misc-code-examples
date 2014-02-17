@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B724B54D188C607D0031D40E /* SPRVCSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B724B54C188C607D0031D40E /* SPRVCSelectionViewController.m */; };
+		B724B550188CB4150031D40E /* SPRCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B724B54F188CB4150031D40E /* SPRCollectionViewController.m */; };
 		B7A552271884F47B0041A82A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A552261884F47B0041A82A /* Foundation.framework */; };
 		B7A552291884F47B0041A82A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A552281884F47B0041A82A /* CoreGraphics.framework */; };
 		B7A5522B1884F47B0041A82A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A5522A1884F47B0041A82A /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* Begin PBXFileReference section */
 		B724B54B188C607D0031D40E /* SPRVCSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRVCSelectionViewController.h; sourceTree = "<group>"; };
 		B724B54C188C607D0031D40E /* SPRVCSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRVCSelectionViewController.m; sourceTree = "<group>"; };
+		B724B54E188CB4150031D40E /* SPRCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRCollectionViewController.h; sourceTree = "<group>"; };
+		B724B54F188CB4150031D40E /* SPRCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRCollectionViewController.m; sourceTree = "<group>"; };
 		B7A552231884F47B0041A82A /* StateRestorationExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateRestorationExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A552261884F47B0041A82A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B7A552281884F47B0041A82A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +166,8 @@
 				B7A552571884F50F0041A82A /* SPRBasicViewController.m */,
 				B7A552591884FD7A0041A82A /* SPRTableViewController.h */,
 				B7A5525A1884FD7A0041A82A /* SPRTableViewController.m */,
+				B724B54E188CB4150031D40E /* SPRCollectionViewController.h */,
+				B724B54F188CB4150031D40E /* SPRCollectionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B724B550188CB4150031D40E /* SPRCollectionViewController.m in Sources */,
 				B724B54D188C607D0031D40E /* SPRVCSelectionViewController.m in Sources */,
 				B7A552581884F50F0041A82A /* SPRBasicViewController.m in Sources */,
 				B7A552371884F47B0041A82A /* SPRAppDelegate.m in Sources */,

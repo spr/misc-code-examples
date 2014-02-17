@@ -10,6 +10,7 @@
 
 #import "SPRBasicViewController.h"
 #import "SPRTableViewController.h"
+#import "SPRCollectionViewController.h"
 
 @interface SPRVCSelectionViewController () <UIViewControllerRestoration>
 
@@ -69,7 +70,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 - (NSString *)titleForRow:(NSInteger)row {
@@ -80,6 +81,9 @@
             break;
         case 1:
             title = @"Table View Controller";
+            break;
+        case 2:
+            title = @"Collection View Controller";
             break;
         default:
             title = @"Unknown";
@@ -108,6 +112,9 @@
             break;
         case 1:
             vc = [[SPRTableViewController alloc] initWithStyle:UITableViewStylePlain];
+            break;
+        case 2:
+            vc = [[SPRCollectionViewController alloc] init];
             break;
         default:
             NSLog(@"ERROR: NEED TO SET A VC");
