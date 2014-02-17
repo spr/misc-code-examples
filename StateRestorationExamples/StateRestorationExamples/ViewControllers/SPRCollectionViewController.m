@@ -45,6 +45,21 @@
     return vc;
 }
 
+// The UICollectionViewController has a default implementation of these that
+// will properly encode the current indexPath's as needed.
+// However, if you data model can change between launches of the app
+// You'll need a custom implementation.
+//
+// Don't forget to add the UIDataSourceModelAssociation protocol as well.
+
+//- (NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)idx inView:(UIView *)view {
+//    return nil;
+//}
+//
+//- (NSIndexPath *)indexPathForElementWithModelIdentifier:(NSString *)identifier inView:(UIView *)view {
+//    return nil;
+//}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,6 +76,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = self.colors[indexPath.row % self.colors.count];
+
+    UIView *selection = [[UIView alloc] initWithFrame:CGRectInset(cell.bounds, -5, -5)];
+    selection.backgroundColor = [UIColor whiteColor];
+
+    cell.selectedBackgroundView = selection;
     
     return cell;
 }

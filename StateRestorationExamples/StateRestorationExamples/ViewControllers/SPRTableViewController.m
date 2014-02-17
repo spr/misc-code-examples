@@ -47,6 +47,8 @@
     return self;
 }
 
+#pragma mark - View Restoration
+
 #define kRestorationTableViewStyle @"TableViewStyle"
 
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
@@ -69,6 +71,8 @@
     NSLog(@"%@: restoring state", self);
 }
 
+#pragma mark - UIDataSourceModelAssociation
+
 // These two functions are used to determine where in the table something is.
 // Typically you'd grab a reference you could use to pull the object back out of
 // Core Data and produce the row (even if elements have changed since).
@@ -82,6 +86,8 @@
     NSLog(@"%@: Generating index for '%@'", [self class], identifier);
     return [NSIndexPath indexPathForRow:row inSection:1];
 }
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad
 {
