@@ -11,6 +11,7 @@
 #import "SPRBasicViewController.h"
 #import "SPRTableViewController.h"
 #import "SPRCollectionViewController.h"
+#import "SPRCustomViewController.h"
 
 @interface SPRVCSelectionViewController () <UIViewControllerRestoration>
 
@@ -47,6 +48,9 @@
 }
 
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+
+    NSLog(@"[%@ %s]", NSStringFromClass(self), __PRETTY_FUNCTION__);
+
     UIViewController *vc = [[self alloc] init];
     vc.restorationClass = self;
     vc.restorationIdentifier = [identifierComponents lastObject];
@@ -70,7 +74,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return 4;
 }
 
 - (NSString *)titleForRow:(NSInteger)row {
@@ -84,6 +88,9 @@
             break;
         case 2:
             title = @"Collection View Controller";
+            break;
+        case 3:
+            title = @"Custom View Controller";
             break;
         default:
             title = @"Unknown";
@@ -115,6 +122,9 @@
             break;
         case 2:
             vc = [[SPRCollectionViewController alloc] init];
+            break;
+        case 3:
+            vc = [[SPRCustomViewController alloc] init];
             break;
         default:
             NSLog(@"ERROR: NEED TO SET A VC");

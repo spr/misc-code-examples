@@ -32,18 +32,47 @@
                     [UIColor blueColor],
                     [UIColor magentaColor],
                     [UIColor purpleColor]];
+
+        // This is the only thing you need to set beyond the class's
+        // restorationIdentifier.
+        //
+        // If you leave this out, you will have to do all the state
+        // restoration manually.
         self.collectionView.restorationIdentifier = NSStringFromClass([self.collectionView class]);
     }
     return self;
 }
 
+- (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
+    return [self init];
+}
+
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+    
     UIViewController *vc = [[self alloc] init];
     vc.restorationClass = self;
     vc.restorationIdentifier = [identifierComponents lastObject];
 
+    NSLog(@"Created %@", vc);
+
     return vc;
 }
+
+// UICollectionViewControllers don't need an explict implementation of these
+// by default. However, if you have custom data that needs to be stored
+// between launches, you'll need to add them.
+
+//- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
+//    [super encodeRestorableStateWithCoder:coder];
+//
+//    // Your code here
+//}
+//
+//- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
+//    [super decodeRestorableStateWithCoder:coder];
+//
+//    // Your code here
+//}
 
 // The UICollectionViewController has a default implementation of these that
 // will properly encode the current indexPath's as needed.

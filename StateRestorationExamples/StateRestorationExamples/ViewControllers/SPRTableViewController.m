@@ -49,9 +49,10 @@
 
 #pragma mark - View Restoration
 
-#define kRestorationTableViewStyle @"TableViewStyle"
+static NSString *kRestorationTableViewStyle = @"TableViewStyle";
 
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+
     // We need to know the style in advance before restoring
     NSInteger style = [coder decodeIntegerForKey:kRestorationTableViewStyle];
     UIViewController *vc = [[self alloc] initWithStyle:style];
@@ -77,8 +78,8 @@
 // Typically you'd grab a reference you could use to pull the object back out of
 // Core Data and produce the row (even if elements have changed since).
 - (NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)idx inView:(UIView *)view {
-    NSLog(@"%@: Getting model id for %d", [self class], idx.row);
-    return [NSString stringWithFormat:@"%d", idx.row];
+    NSLog(@"%@: Getting model id for %ld", [self class], (long)idx.row);
+    return [NSString stringWithFormat:@"%ld", (long)idx.row];
 }
 
 - (NSIndexPath *)indexPathForElementWithModelIdentifier:(NSString *)identifier inView:(UIView *)view {

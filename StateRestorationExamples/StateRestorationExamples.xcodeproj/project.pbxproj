@@ -23,6 +23,7 @@
 		B7A5524C1884F47B0041A82A /* StateRestorationExamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A5524B1884F47B0041A82A /* StateRestorationExamplesTests.m */; };
 		B7A552581884F50F0041A82A /* SPRBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A552571884F50F0041A82A /* SPRBasicViewController.m */; };
 		B7A5525B1884FD7A0041A82A /* SPRTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A5525A1884FD7A0041A82A /* SPRTableViewController.m */; };
+		B7D399E2192C58D200CD1293 /* SPRCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D399E1192C58D200CD1293 /* SPRCustomViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		B7A552571884F50F0041A82A /* SPRBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRBasicViewController.m; sourceTree = "<group>"; };
 		B7A552591884FD7A0041A82A /* SPRTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRTableViewController.h; sourceTree = "<group>"; };
 		B7A5525A1884FD7A0041A82A /* SPRTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRTableViewController.m; sourceTree = "<group>"; };
+		B7D399E0192C58D200CD1293 /* SPRCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRCustomViewController.h; sourceTree = "<group>"; };
+		B7D399E1192C58D200CD1293 /* SPRCustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRCustomViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				B7A5525A1884FD7A0041A82A /* SPRTableViewController.m */,
 				B724B54E188CB4150031D40E /* SPRCollectionViewController.h */,
 				B724B54F188CB4150031D40E /* SPRCollectionViewController.m */,
+				B7D399E0192C58D200CD1293 /* SPRCustomViewController.h */,
+				B7D399E1192C58D200CD1293 /* SPRCustomViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -217,7 +222,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SPR;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Scott Robertson";
 				TargetAttributes = {
 					B7A5523D1884F47B0041A82A = {
@@ -269,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B724B550188CB4150031D40E /* SPRCollectionViewController.m in Sources */,
+				B7D399E2192C58D200CD1293 /* SPRCustomViewController.m in Sources */,
 				B724B54D188C607D0031D40E /* SPRVCSelectionViewController.m in Sources */,
 				B7A552581884F50F0041A82A /* SPRBasicViewController.m in Sources */,
 				B7A552371884F47B0041A82A /* SPRAppDelegate.m in Sources */,
@@ -319,7 +325,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -358,7 +363,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -416,7 +420,6 @@
 		B7A552531884F47B0041A82A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StateRestorationExamples.app/StateRestorationExamples";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -439,7 +442,6 @@
 		B7A552541884F47B0041A82A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StateRestorationExamples.app/StateRestorationExamples";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

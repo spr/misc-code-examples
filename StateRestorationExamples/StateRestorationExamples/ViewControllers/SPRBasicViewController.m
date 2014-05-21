@@ -33,6 +33,7 @@
 }
 
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+
     UIViewController *vc = nil;
     vc = [[self alloc] init];
     vc.restorationClass = self;
@@ -41,7 +42,7 @@
     return vc;
 }
 
-#define kRestorationTapCounter @"tapCounter"
+static NSString *kRestorationTapCounter = @"tapCounter";
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
     [super encodeRestorableStateWithCoder:coder];
@@ -78,7 +79,7 @@
 
 - (void)tapCounterAction:(UITapGestureRecognizer *)tap {
     self.tapCounter += 1;
-    NSLog(@"Tap counter is now: %u", self.tapCounter);
+    NSLog(@"Tap counter is now: %lu", (unsigned long)self.tapCounter);
 }
 
 @end
